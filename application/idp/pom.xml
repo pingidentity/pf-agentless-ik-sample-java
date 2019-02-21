@@ -4,14 +4,14 @@
     <parent>
         <groupId>com.pingidentity.developer</groupId>
         <artifactId>pf-agentless-ik-sample-project-aggregator</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <groupId>com.pingidentity.developer</groupId>
     <artifactId>idp-sample</artifactId>
     <packaging>war</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>com.pingidentity.developer</groupId>
             <artifactId>pf-referenceid-util</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

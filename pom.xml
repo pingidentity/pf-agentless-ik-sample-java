@@ -4,7 +4,7 @@
 
     <groupId>com.pingidentity.developer</groupId>
     <artifactId>pf-agentless-ik-sample-project-aggregator</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
