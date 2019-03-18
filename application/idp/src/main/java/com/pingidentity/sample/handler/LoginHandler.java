@@ -108,13 +108,13 @@ public class LoginHandler extends RequestHandler
                     String redirectURLPath = new URL(redirectURL).getPath();
 
                     request.getSession(true).setAttribute(
-                            IdpSampleConstants.RESUME_KEY_PREFIX +
-                            IdpSampleConstants.REF_ID_ADAPTER_REFERENCE,
-                            referenceId);
-                    request.getSession(true).setAttribute(
-                            IdpSampleConstants.RESUME_KEY_PREFIX +
+                            IdpSampleConstants.DROPOFF_KEY_PREFIX +
                             IdpSampleConstants.REF_ID_ADAPTER_REDIRECT_URL_PATH,
                             redirectURLPath);
+                    request.getSession(true).setAttribute(
+                            IdpSampleConstants.RESUME_KEY_PREFIX +
+                            IdpSampleConstants.REF_ID_ADAPTER_REDIRECT_URL,
+                            redirectURL);
                     return URLUtil.getDropoffURL(request);
                 }
                 catch (DropoffException e)
