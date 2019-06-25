@@ -21,7 +21,7 @@ import java.net.URL;
 
 public class SpSampleServlet extends HttpServlet
 {
-    private RequestHandlerFactory requestHandlerFactory = new RequestHandlerFactory();
+    private static RequestHandlerFactory requestHandlerFactory = new RequestHandlerFactory();
 
     private static final Log logger = LogFactory.getLog(SpSampleServlet.class);
 

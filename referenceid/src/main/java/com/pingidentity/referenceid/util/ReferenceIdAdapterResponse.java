@@ -1,9 +1,10 @@
 package com.pingidentity.referenceid.util;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class ReferenceIdAdapterResponse
+public class ReferenceIdAdapterResponse implements Serializable
 {
     private Map<String, List<String>> responseHeaders;
     private String responseBody;
