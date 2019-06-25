@@ -66,6 +66,7 @@ public class DropoffUtil
         if (incomingAttributeFormat == IncomingAttributeFormat.JSON)
         {
             urlConnection.setDoOutput(true);
+            urlConnection.setRequestProperty("Content-Type", "application/json");
         }
 
         String responseCode;
