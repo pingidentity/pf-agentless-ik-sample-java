@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/pingidentity/pf-agentless-ik-sample.svg?branch=master)](https://travis-ci.org/pingidentity/pf-agentless-ik-sample)
+[![Build Status](https://travis-ci.org/pingidentity/pf-agentless-ik-sample-java.svg?branch=master)](https://travis-ci.org/pingidentity/pf-agentless-ik-sample-java)
 
 PingFederate Agentless Integration Kit Sample
 ======================================================
