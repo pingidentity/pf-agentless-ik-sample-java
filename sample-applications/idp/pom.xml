@@ -33,7 +33,7 @@
         <dependency>
             <groupId>products.plugins.integration-kits.pf-agentless-integration-kit.sample.util</groupId>
             <artifactId>pf-referenceid-util</artifactId>
-            <version>1.0.3-SNAPSHOT</version>
+            <version>2.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
