@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>products.plugins.integration-kits.pf-agentless-integration-kit</groupId>
+    <artifactId>samples</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.8</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>art01-snapshots</id>
+            <name>art01-snapshots</name>
+            <url>https://art01.corp.pingidentity.com/artifactory/libs-snapshots-local</url>
+        </snapshotRepository>
+        <repository>
+            <id>art01-releases</id>
+            <name>art01-releases</name>
+            <url>https://art01.corp.pingidentity.com/artifactory/libs-releases-local</url>
+        </repository>
+    </distributionManagement>
+</project>

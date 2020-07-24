@@ -1,0 +1,36 @@
+<assembly>
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <baseDirectory>pf-agentless-integration-kit-sample</baseDirectory>
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>../configuration-archive</directory>
+            <outputDirectory>./</outputDirectory>
+            <includes>
+                <include>data.zip</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+
+    <dependencySets>
+        <dependencySet>
+            <includes>
+                <include>products.plugins.integration-kits.pf-agentless-integration-kit.sample.idp:idp-sample</include>
+            </includes>
+            <outputDirectory>dist</outputDirectory>
+            <outputFileNameMapping>AgentlessIdPSample.${artifact.extension}</outputFileNameMapping>
+        </dependencySet>
+        <dependencySet>
+            <includes>
+                <include>products.plugins.integration-kits.pf-agentless-integration-kit.sample.sp:sp-sample</include>
+            </includes>
+            <outputDirectory>dist</outputDirectory>
+            <outputFileNameMapping>AgentlessSPSample.${artifact.extension}</outputFileNameMapping>
+        </dependencySet>
+    </dependencySets>
+
+</assembly>

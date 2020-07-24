@@ -1,0 +1,82 @@
+[
+  {
+    "username":"joe",
+    "password":"test",
+    "attributes":{
+      "lastName":{
+        "localized": {
+          "en_US": "Brown"
+        },
+        "preferredLocale":{
+          "country":"US",
+          "language:":"en"
+        }
+      },
+      "firstName":{
+        "localized": {
+          "en_US": "Joe"
+        },
+        "preferredLocale":{
+          "country":"US",
+          "language:":"en"
+        }
+      },
+      "status":"Silver",
+      "groups":["Users", "Developers"]
+    }
+  },
+  {
+    "username":"scott",
+    "password":"test",
+    "attributes":
+    {
+      "lastName":{
+        "localized": {
+          "en_US": "Stevens"
+        },
+        "preferredLocale":{
+          "country":"US",
+          "language:":"en"
+        }
+      },
+      "firstName":{
+        "localized": {
+          "en_US": "Scott"
+        },
+        "preferredLocale":{
+          "country":"US",
+          "language:":"en"
+        }
+      },
+      "status":"Bronze",
+      "groups":["Admins", "Network Admins"]
+    }
+  },
+  {
+    "username":"sarah",
+    "password":"test",
+    "attributes":
+    {
+      "lastName":{
+        "localized": {
+          "en_US": "White"
+        },
+        "preferredLocale":{
+          "country":"US",
+          "language:":"en"
+        }
+      },
+      "firstName":{
+        "localized": {
+          "en_US": "Sarah"
+        },
+        "preferredLocale":{
+          "country":"US",
+          "language:":"en"
+        }
+      },
+      "status":"Gold",
+      "groups":["Users", "Customer"]
+    }
+  }
+]

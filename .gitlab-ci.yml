@@ -1,0 +1,42 @@
+stages:
+- compile
+- static-analysis
+
+build-adapter:
+  stage: compile
+  script:
+    - mvn clean deploy -U
+  artifacts:
+    paths:
+      - sample-applications/idp/target/*.war
+      - sample-applications/sp/target/*.war
+  tags:
+    - platform-compile-java-service
+
+run-java-static-analysis-idp-sample:
+  stage: static-analysis
+  variables:
+    DOCKER_IMAGE_NAME: "integration-kits/pf-agentless-ik-sample"
+  before_script:
+    - run before
+  script:
+    - cd sample-applications/idp
+    - run
+  after_script:
+    - run after
+  tags:
+    - platform-java-static-analysis
+
+run-java-static-analysis-sp-sample:
+  stage: static-analysis
+  variables:
+    DOCKER_IMAGE_NAME: "integration-kits/pf-agentless-ik-sample"
+  before_script:
+    - run before
+  script:
+    - cd sample-applications/sp
+    - run
+  after_script:
+    - run after
+  tags:
+    - platform-java-static-analysis

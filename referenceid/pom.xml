@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>products.plugins.integration-kits.pf-agentless-integration-kit.sample</groupId>
+        <artifactId>pf-agentless-integration-kit-sample-project-aggregator</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>products.plugins.integration-kits.pf-agentless-integration-kit.sample.util</groupId>
+    <artifactId>pf-referenceid-util</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>art01-snapshots</id>
+            <name>art01-snapshots</name>
+            <url>https://art01.corp.pingidentity.com/artifactory/libs-snapshots-local</url>
+        </snapshotRepository>
+        <repository>
+            <id>art01-releases</id>
+            <name>art01-releases</name>
+            <url>https://art01.corp.pingidentity.com/artifactory/libs-releases-local</url>
+        </repository>
+    </distributionManagement>
+</project>
