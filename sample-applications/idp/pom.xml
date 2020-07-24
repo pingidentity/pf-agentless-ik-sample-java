@@ -84,17 +84,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>art01-snapshots</id>
-            <name>art01-snapshots</name>
-            <url>https://art01.corp.pingidentity.com/artifactory/libs-snapshots-local</url>
-        </snapshotRepository>
-        <repository>
-            <id>art01-releases</id>
-            <name>art01-releases</name>
-            <url>https://art01.corp.pingidentity.com/artifactory/libs-releases-local</url>
-        </repository>
-    </distributionManagement>
 </project>
