@@ -1,4 +1,4 @@
-<!-- [![Build Status](https://travis-ci.org/pingidentity/pf-agentless-ik-sample-java.svg?branch=master)](https://travis-ci.org/pingidentity/pf-agentless-ik-sample-java) -->
+[![Build Status](https://travis-ci.org/pingidentity/pf-agentless-ik-sample-java.svg?branch=master)](https://travis-ci.org/pingidentity/pf-agentless-ik-sample-java)
 
 <p align="center">
     <img src="https://assets.pingone.com/ux/end-user/0.14.0/images/ping-logo.svg" height="150" width="150" />
