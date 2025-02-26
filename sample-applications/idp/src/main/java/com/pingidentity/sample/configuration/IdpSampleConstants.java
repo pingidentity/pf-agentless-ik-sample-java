@@ -26,10 +26,14 @@ public class IdpSampleConstants
     public static final String DROPOFF_KEY_PREFIX = "DROPOFF_KEY_PREFIX";
     public static final String RESUME_KEY_PREFIX = "RESUME_KEY_PREFIX";
     public static final String LOGOUT_KEY_PREFIX = "LOGOUT_KEY_PREFIX";
+    public static final String REQUEST_AUTHORIZATION_HEADER = "REQUEST_AUTHORIZATION_HEADER";
 
     public static final String IDP_ADAPTER_CONF_BASE_PF_URL = "basePfUrl";
     public static final String IDP_ADAPTER_CONF_USERNAME = "username";
     public static final String IDP_ADAPTER_CONF_PASSPHRASE = "passphrase";
+    public static final String IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID = "ccClientId";
+    public static final String IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET = "ccClientSecret";
+    public static final String IDP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH = "useBearerTokenAuth";
     public static final String IDP_ADAPTER_CONF_ADAPTER_ID = "adapterId";
     public static final String IDP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT = "outgoingAttributeFormat";
     public static final String IDP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT_JSON = "JSON";

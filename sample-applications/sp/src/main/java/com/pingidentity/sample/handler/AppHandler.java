@@ -30,7 +30,8 @@ public class AppHandler extends RequestHandler
                 ReferenceIdAdapterResponse pickupResponse = ReferenceIdAdapterUtil.pickupAttributes(referenceId);
 
                 HttpSession httpSession = request.getSession(true);
-
+                httpSession.setAttribute(SpSampleConstants.REQUEST_AUTHORIZATION_HEADER,
+                                         pickupResponse.getRequestAuthorizationHeaderValue());
                 httpSession.setAttribute(SpSampleConstants.APP_KEY_PREFIX +
                                          SpSampleConstants.REF_ID_ADAPTER_REFERENCE, referenceId);
                 httpSession.setAttribute(SpSampleConstants.APP_KEY_PREFIX +

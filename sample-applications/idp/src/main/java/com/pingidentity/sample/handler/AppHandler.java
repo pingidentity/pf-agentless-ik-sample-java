@@ -35,6 +35,7 @@ public class AppHandler extends RequestHandler
                         request.getParameter(IdpSampleConstants.RESUME_PATH));
                 httpSession.setAttribute(IdpSampleConstants.LOGIN_KEY_PREFIX + IdpSampleConstants.REF_ID_ADAPTER_REFERENCE, referenceId);
                 httpSession.setAttribute(IdpSampleConstants.LOGIN_KEY_PREFIX + IdpSampleConstants.REF_ID_ADAPTER_RESPONSE, pickupResponse);
+                httpSession.setAttribute(IdpSampleConstants.REQUEST_AUTHORIZATION_HEADER, pickupResponse.getRequestAuthorizationHeaderValue());
             }
             catch (PickupException e)
             {

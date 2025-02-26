@@ -21,8 +21,14 @@
 	String idpAdapterId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_ADAPTER_ID);
 	String outgoingAttributeFormat = idpAdapterConfiguration.getProperty(
 			IdpSampleConstants.IDP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT);
-	
+	String authorizationHeaderValue = "";
+
 	HttpSession httpSession = request.getSession(false);
+
+	if (httpSession != null && httpSession.getAttribute(IdpSampleConstants.REQUEST_AUTHORIZATION_HEADER) != null)
+	{
+	    authorizationHeaderValue = (String) httpSession.getAttribute(IdpSampleConstants.REQUEST_AUTHORIZATION_HEADER);
+	}
 
 	String referenceId = "";
 	
@@ -46,10 +52,8 @@
 								 "?REF=" + 
 								 referenceId + 
 								 "\n");		
-		rawRequestBuilder.append(IdpSampleConstants.REF_ID_ADAPTER_INSTANCE_ID + ": " + idpAdapterId + "\n");		
-
-		String basicAuth = username + ":" + password;
-		rawRequestBuilder.append("Authorization" + ": " + Base64.encodeBase64String(basicAuth.getBytes()));				
+		rawRequestBuilder.append(IdpSampleConstants.REF_ID_ADAPTER_INSTANCE_ID + ": " + idpAdapterId + "\n");
+		rawRequestBuilder.append("Authorization" + ": " + authorizationHeaderValue);
 		
 		rawRequest = rawRequestBuilder.toString();
 	}
@@ -231,7 +235,7 @@
                 <div class="ping-footer">
                     <div class="ping-credits"></div>
                     <div class="ping-copyright">
-                    	Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.
+                    	Copyright © 2003-2025. Ping Identity Corporation. All rights reserved.
 					</div>
                 </div>
 			</div>

@@ -37,6 +37,11 @@ public class ReferenceIdAdapterUtil
         String username = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_USERNAME);
         String passphrase = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_PASSPHRASE);
         String adapterId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_ADAPTER_ID);
+        boolean useBearerTokenAuthentication =
+                idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH).equals("yes") ? true: false;
+        String clientId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
+        String clientSecret =
+                idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
 
         ReferenceIdAdapterResponse pickupResponse;
 
@@ -54,6 +59,9 @@ public class ReferenceIdAdapterUtil
                     referenceId,
                     username,
                     passphrase,
+                    useBearerTokenAuthentication,
+                    clientId,
+                    clientSecret,
                     sslContext,
                     (hostname, sslSession) -> true);
         }
@@ -77,6 +85,11 @@ public class ReferenceIdAdapterUtil
         String adapterId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_ADAPTER_ID);
         String incomingAttributeFormatStr = idpAdapterConfiguration.getProperty(
                 IdpSampleConstants.IDP_ADAPTER_CONF_INCOMING_ATTRIBUTE_FORMAT);
+        boolean useBearerTokenAuthentication =
+                idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH).equals("yes") ? true : false;
+        String clientId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
+        String clientSecret =
+                idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
 
         IncomingAttributeFormat incomingAttributeFormat =
                 IdpSampleConstants.IDP_ADAPTER_CONF_INCOMING_ATTRIBUTE_FORMAT_JSON.equals(incomingAttributeFormatStr) ?
@@ -101,6 +114,9 @@ public class ReferenceIdAdapterUtil
                     attributes,
                     username,
                     passphrase,
+                    useBearerTokenAuthentication,
+                    clientId,
+                    clientSecret,
                     incomingAttributeFormat,
                     sslContext,
                     (hostname, sslSession) -> true);

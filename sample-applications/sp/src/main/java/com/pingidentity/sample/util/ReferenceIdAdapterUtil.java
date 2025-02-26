@@ -33,6 +33,11 @@ public class ReferenceIdAdapterUtil
         String username = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_USERNAME);
         String passphrase = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_PASSPHRASE);
         String adapterId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_ADAPTER_ID);
+        boolean useBearerTokenAuthentication =
+                spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH).equals("yes") ? true: false;
+        String clientId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
+        String clientSecret =
+                spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
 
         ReferenceIdAdapterResponse pickupResponse;
 
@@ -50,6 +55,9 @@ public class ReferenceIdAdapterUtil
                     referenceId,
                     username,
                     passphrase,
+                    useBearerTokenAuthentication,
+                    clientId,
+                    clientSecret,
                     sslContext,
                     (hostname, sslSession) -> true);
         }

@@ -22,10 +22,15 @@
     String spAdapterId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_ADAPTER_ID);
     String outgoingAttributeFormat = spAdapterConfiguration.getProperty(
             SpSampleConstants.SP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT);
+    String authorizationHeaderValue = "";
 
     HttpSession httpSession = request.getSession(false);
 
 	String referenceId = "";
+	if (httpSession != null && httpSession.getAttribute(SpSampleConstants.REQUEST_AUTHORIZATION_HEADER) != null)
+	{
+	    authorizationHeaderValue = (String) httpSession.getAttribute(SpSampleConstants.REQUEST_AUTHORIZATION_HEADER);
+	}
 	
 	if (httpSession != null && httpSession.getAttribute(SpSampleConstants.LOGOUT_KEY_PREFIX +
 	    SpSampleConstants.REF_ID_ADAPTER_REFERENCE) != null)
@@ -47,10 +52,8 @@
 								 "?REF=" + 
 								 referenceId + 
 								 "\n");		
-		rawRequestBuilder.append(SpSampleConstants.REF_ID_ADAPTER_INSTANCE_ID + ": " + spAdapterId + "\n");		
-
-		String basicAuth = username + ":" + password;
-		rawRequestBuilder.append("Authorization" + ": " + Base64.encodeBase64String(basicAuth.getBytes()));				
+		rawRequestBuilder.append(SpSampleConstants.REF_ID_ADAPTER_INSTANCE_ID + ": " + spAdapterId + "\n");
+		rawRequestBuilder.append("Authorization" + ": " + authorizationHeaderValue);
 		
 		rawRequest = rawRequestBuilder.toString();
 	}
@@ -232,7 +235,7 @@
                 <div class="ping-footer">
                     <div class="ping-credits"></div>
                     <div class="ping-copyright">
-                    	Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.
+                    	Copyright © 2003-2025. Ping Identity Corporation. All rights reserved.
 					</div>
                 </div>
 			</div>

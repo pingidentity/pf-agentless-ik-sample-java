@@ -27,6 +27,9 @@ public class SpSampleConstants
     public static final String SP_ADAPTER_CONF_BASE_PF_URL = "basePfUrl";
     public static final String SP_ADAPTER_CONF_USERNAME = "username";
     public static final String SP_ADAPTER_CONF_PASSPHRASE = "passphrase";
+    public static final String SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH = "useBearerTokenAuth";
+    public static final String SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID = "ccClientId";
+    public static final String SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET = "ccClientSecret";
     public static final String SP_ADAPTER_CONF_ADAPTER_ID = "adapterId";
     public static final String SP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT = "outgoingAttributeFormat";
     public static final String SP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT_JSON = "JSON";
@@ -35,6 +38,7 @@ public class SpSampleConstants
     public static final String SP_ADAPTER_CONF_PARTNER_ENTITY_ID = "partnerEntityId";
 
     public static final String REF_ID_ADAPTER_PICKUP_ENDPOINT = "/ext/ref/pickup";
+    public static final String REQUEST_AUTHORIZATION_HEADER = "REQUEST_AUTHORIZATION_HEADER";
 
     public static final String REF_ID_ADAPTER_RESPONSE = "REF_ID_ADAPTER_RESPONSE";
     public static final String REF_ID_ADAPTER_REDIRECT_URL = "REF_ID_ADAPTER_REDIRECT_URL";

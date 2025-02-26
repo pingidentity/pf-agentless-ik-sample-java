@@ -43,7 +43,7 @@
                 <div class="ping-footer">
                     <div class="ping-credits"></div>
                     <div class="ping-copyright">
-                    	Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.
+                    	Copyright © 2003-2025. Ping Identity Corporation. All rights reserved.
 					</div>
                 </div>
             </div>

@@ -81,6 +81,19 @@ public class ConfigurationManager
                 request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_PASSPHRASE));
         lines.add(applicationPassphrase);
 
+        String useBearerTokenAuth = parseUseBearerTokenFlowInput(
+                request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH));
+        lines.add(useBearerTokenAuth);
+
+        String ccClientId = parseClientCredentialsFlowClientIdInput(
+                request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID));
+        lines.add(ccClientId);
+
+        String ccClientSecret = parseClientCredentialsFlowClientSecretInput(
+                request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET));
+        lines.add(ccClientSecret);
+
+
         String idpAdapterId = parseApplicationIdpAdapterIdInput(
                 request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_ADAPTER_ID));
         lines.add(idpAdapterId);
@@ -146,6 +159,21 @@ public class ConfigurationManager
         }
 
         return IdpSampleConstants.IDP_ADAPTER_CONF_PASSPHRASE + "=" + applicationPassphrase;
+    }
+
+    private static String parseClientCredentialsFlowClientIdInput(String clientId) throws ConfigurationException
+    {
+        return IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID + "=" + clientId;
+    }
+
+    private static String parseClientCredentialsFlowClientSecretInput(String clientSecret) throws ConfigurationException
+    {
+        return IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET + "=" + clientSecret;
+    }
+
+    private static String parseUseBearerTokenFlowInput(String useBearerTokenAuth) throws ConfigurationException
+    {
+        return IdpSampleConstants.IDP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH + "=" + useBearerTokenAuth;
     }
 
     private static String parseApplicationIdpAdapterIdInput(String idpAdapterId) throws ConfigurationException

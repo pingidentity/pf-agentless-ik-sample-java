@@ -11,6 +11,9 @@ public class ReferenceIdAdapterResponse implements Serializable
     private String responseCode;
     private String responseMessage;
 
+    // tracked for display purposes
+    private String requestAuthorizationHeaderValue;
+
     public ReferenceIdAdapterResponse(String responseCode, String responseMessage, Map<String, List<String>> responseHeaders, String responseBody)
     {
         this.responseCode = responseCode;
@@ -39,4 +42,13 @@ public class ReferenceIdAdapterResponse implements Serializable
         return responseBody;
     }
 
+    public String getRequestAuthorizationHeaderValue()
+    {
+        return requestAuthorizationHeaderValue;
+    }
+
+    public void setRequestAuthorizationHeaderValue(String requestAuthorizationHeaderValue)
+    {
+        this.requestAuthorizationHeaderValue = requestAuthorizationHeaderValue;
+    }
 }

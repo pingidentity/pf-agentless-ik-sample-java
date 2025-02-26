@@ -10,7 +10,6 @@
 <%@ page import = "java.util.Properties" %>
 <%@ page import = "java.io.StringReader" %>
 <%@ page import = "java.util.Map.Entry" %>
-<%@ page import = "org.apache.commons.codec.binary.Base64" %>
 <%@ page import = "org.apache.commons.lang3.StringUtils" %>
 <%@ page import = "org.json.JSONObject" %>
 
@@ -27,10 +26,16 @@
 	String incomingAttributeFormat = idpAdapterConfiguration.getProperty(
 		IdpSampleConstants.IDP_ADAPTER_CONF_INCOMING_ATTRIBUTE_FORMAT);
 
+
 	HttpSession httpSession = request.getSession(false);
 	
 	String rawRequest = "";
 	String requestAttributes = "";
+	String authorizationHeaderValue = "";
+	if (httpSession != null && httpSession.getAttribute(IdpSampleConstants.REQUEST_AUTHORIZATION_HEADER) != null)
+	{
+	    authorizationHeaderValue = (String) httpSession.getAttribute(IdpSampleConstants.REQUEST_AUTHORIZATION_HEADER);
+	}
 
 	if (httpSession != null && httpSession.getAttribute(IdpSampleConstants.DROPOFF_KEY_PREFIX +
 	    IdpSampleConstants.REF_ID_ADAPTER_REQUEST_ATTRIBUTES) != null)
@@ -75,8 +80,8 @@
 		}
 
 		rawRequestBuilder.append(IdpSampleConstants.REF_ID_ADAPTER_INSTANCE_ID + ": " + idpAdapterId + "\n");
-		String basicAuth = username + ":" + password;
-		rawRequestBuilder.append("Authorization" + ": " + Base64.encodeBase64String(basicAuth.getBytes()) + "\n\n");
+		rawRequestBuilder.append("Authorization" + ": " + authorizationHeaderValue + "\n\n");
+
 		
 		if (incomingAttributeFormat.equals(IdpSampleConstants.IDP_ADAPTER_CONF_INCOMING_ATTRIBUTE_FORMAT_JSON))
 		{
@@ -274,7 +279,7 @@
 			<div class="ping-footer">
 				<div class="ping-credits"></div>
 				<div class="ping-copyright">
-					Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.
+					Copyright © 2003-2025. Ping Identity Corporation. All rights reserved.
 				</div>
 			</div>
 		</div>

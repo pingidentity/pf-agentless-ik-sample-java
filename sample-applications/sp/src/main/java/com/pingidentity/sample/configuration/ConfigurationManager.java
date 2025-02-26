@@ -77,6 +77,18 @@ public class ConfigurationManager
                 request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_PASSPHRASE));
         lines.add(applicationPassphrase);
 
+        String useBearerTokenAuth = parseUseBearerTokenAuthInput(
+                request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH));
+        lines.add(useBearerTokenAuth);
+
+        String ccClientId = parseClientCredentialsFlowClientIdInput(
+                request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID));
+        lines.add(ccClientId);
+
+        String ccClientSecret = parseClientCredentialsFlowClientSecretInput(
+                request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET));
+        lines.add(ccClientSecret);
+
         String spAdapterId = parseApplicationSpAdapterIdInput(
                 request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_ADAPTER_ID));
         lines.add(spAdapterId);
@@ -138,6 +150,21 @@ public class ConfigurationManager
         }
 
         return SpSampleConstants.SP_ADAPTER_CONF_PASSPHRASE + "=" + applicationPassphrase;
+    }
+
+    private static String parseClientCredentialsFlowClientIdInput(String clientId) throws ConfigurationException
+    {
+        return SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID + "=" + clientId;
+    }
+
+    private static String parseUseBearerTokenAuthInput(String useBearerTokenAuth) throws ConfigurationException
+    {
+        return SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH + "=" + useBearerTokenAuth;
+    }
+
+    private static String parseClientCredentialsFlowClientSecretInput(String clientSecret) throws ConfigurationException
+    {
+        return SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET + "=" + clientSecret;
     }
 
     private static String parseApplicationSpAdapterIdInput(String spAdapterId) throws ConfigurationException

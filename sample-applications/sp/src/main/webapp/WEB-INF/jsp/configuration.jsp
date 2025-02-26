@@ -18,6 +18,9 @@
 	String basePfUrl = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_BASE_PF_URL);
 	String username = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_USERNAME);
 	String passphrase = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_PASSPHRASE);
+	boolean isChecked = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH).equals("yes") ? true: false;
+	String ccClientId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
+    String ccClientSecret = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
 	String adapterId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_ADAPTER_ID);
 	String outgoingAttributeFormat = spAdapterConfiguration.getProperty(
 			SpSampleConstants.SP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT);
@@ -88,7 +91,39 @@
 										   value="<%= passphrase %>"/> 
 							    </div>
                 			</div>
+
                 			<div class="ping-input grid-d">
+                			    <label class="ping-input-label"
+                			        title="When selected, this triggers the client credentials flow with PF to obtain an access token for use as a bearer token.">
+                			        USE BEARER TOKEN BASED AUTHENTICATION
+                			    </label>
+                			    <input id="use_bearertoken_input"
+                			        type="checkbox"
+                			        name="<%= SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH %>"
+                			        value="yes" <%= isChecked ? "checked" : "" %> >
+                                </input>
+                			</div>
+
+                			<div class="ping-input grid-e">
+								<label class="ping-input-label">CLIENT CREDENTIALS FLOW: CLIENT ID</label>
+								<div class="ping-input-container">
+									<input type="text"
+										   name="<%= SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID %>"
+										   id="application_ccClientId_input"
+										   value="<%= ccClientId %>"/>
+								</div>
+                			</div>
+                			<div class="ping-input grid-f">
+								<label class="ping-input-label">CLIENT CREDENTIALS FLOW: CLIENT SECRET</label>
+								<div class="ping-input-container">
+									<input type="text"
+										   name="<%= SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET %>"
+										   id="application_ccClientSecret_input"
+										   value="<%= ccClientSecret %>"/>
+							    </div>
+                			</div>
+
+                			<div class="ping-input grid-g">
 								<label class="ping-input-label">SP ADAPTER ID</label>
 								<div class="ping-input-container">
 									<input type="text" 
@@ -97,7 +132,7 @@
 										   value="<%= adapterId %>"/>
 								</div>
                 			</div>
-                			<div class="ping-input grid-e">
+                			<div class="ping-input grid-h">
                             	<label class="ping-input-label">OUTGOING ATTRIBUTE FORMAT</label>
 								<div class="ping-input-container">
 									<div class="select-wrapper">
@@ -114,7 +149,7 @@
 									</div>
 								</div>
 							</div> 	
-                			<div class="ping-input grid-f">
+                			<div class="ping-input grid-i">
                             	<label class="ping-input-label">TARGET URL</label>
 								<div class="ping-input-container">
 									<input type="text" 
@@ -123,7 +158,7 @@
 										   value="<%= targetURL %>"/>
 								</div>
 							</div> 	
-                			<div class="ping-input grid-g">
+                			<div class="ping-input grid-j">
                             	<label class="ping-input-label">PARTNER ENTITY ID</label>
 								<div class="ping-input-container">
 									<input type="text" 
@@ -150,7 +185,7 @@
                 <div class="ping-footer">
                     <div class="ping-credits"></div>
                     <div class="ping-copyright">
-                    	Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.
+                    	Copyright © 2003-2025. Ping Identity Corporation. All rights reserved.
 					</div>
                 </div>
             </div>

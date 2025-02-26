@@ -24,11 +24,17 @@
 			SpSampleConstants.SP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT);
 	String targetURL = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_TARGET_URL);
 	String partnerEntityId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_PARTNER_ENTITY_ID);
+	String authorizationHeaderValue = "";
 
 	HttpSession httpSession = request.getSession(false);
 
 	String referenceId = "";
 	ReferenceIdAdapterResponse pickupResponse = null;
+
+	if (httpSession != null && httpSession.getAttribute(SpSampleConstants.REQUEST_AUTHORIZATION_HEADER) != null)
+	{
+	    authorizationHeaderValue = (String) httpSession.getAttribute(SpSampleConstants.REQUEST_AUTHORIZATION_HEADER);
+    }
 
 	if (httpSession != null && httpSession.getAttribute(SpSampleConstants.APP_KEY_PREFIX +
 	    SpSampleConstants.REF_ID_ADAPTER_REFERENCE) != null)
@@ -75,10 +81,8 @@
 								 "?REF=" + 
 								 referenceId + 
 								 "\n");		
-		rawRequestBuilder.append(SpSampleConstants.REF_ID_ADAPTER_INSTANCE_ID + ": " + spAdapterId + "\n");		
-
-		String basicAuth = username + ":" + password;
-		rawRequestBuilder.append("Authorization" + ": " + Base64.encodeBase64String(basicAuth.getBytes()));				
+		rawRequestBuilder.append(SpSampleConstants.REF_ID_ADAPTER_INSTANCE_ID + ": " + spAdapterId + "\n");
+		rawRequestBuilder.append("Authorization" + ": " + authorizationHeaderValue);
 
 		rawRequest = rawRequestBuilder.toString();
 	}
@@ -244,7 +248,7 @@
                 <div class="ping-footer">
                     <div class="ping-credits"></div>
                     <div class="ping-copyright">
-                    	Copyright © 2003-2020. Ping Identity Corporation. All rights reserved.
+                    	Copyright © 2003-2025. Ping Identity Corporation. All rights reserved.
 					</div>
                 </div>
             </div>

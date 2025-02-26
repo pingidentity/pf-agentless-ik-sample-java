@@ -75,6 +75,8 @@ public class LoginHandler extends RequestHandler
                             ReferenceIdAdapterUtil.dropoffAttributes(user);
                     request.getSession(true).setAttribute(IdpSampleConstants.DROPOFF_KEY_PREFIX +
                                                           REF_ID_ADAPTER_RESPONSE, referenceIdAdapterResponse);
+                    request.getSession(true).setAttribute(IdpSampleConstants.REQUEST_AUTHORIZATION_HEADER,
+                                                          referenceIdAdapterResponse.getRequestAuthorizationHeaderValue());
 
                     String referenceId = ReferenceIdAdapterUtil.getAttribute(
                             outgoingAttributeFormat,

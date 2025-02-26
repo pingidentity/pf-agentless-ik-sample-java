@@ -26,6 +26,9 @@ public class PickupUtil
             String referenceId,
             String username,
             String password,
+            boolean useBearerTokenAuthentication,
+            String clientId,
+            String clientSecret,
             SSLContext sslContext,
             HostnameVerifier hostnameVerifier) throws IOException
     {
@@ -37,9 +40,23 @@ public class PickupUtil
         // 2 - Identify the adapter to use
         urlConnection.setRequestProperty("ping.instanceId", adapterId);
 
-        // 3 - Authenticate with BasicAuth
-        String basicAuth = username + ":" + password;
-        urlConnection.setRequestProperty("Authorization", "Basic " + Base64.encodeBase64String(basicAuth.getBytes()));
+        String authorizationHeaderValue = "";
+
+        if (useBearerTokenAuthentication)
+        {
+            // Get the access token
+            String accessToken = ClientCredentialsUtil.getAccessToken(basePfUrl, clientId, clientSecret);
+            // 3 - Authenticate with Bearer Token
+            authorizationHeaderValue = "Bearer " + accessToken;
+            urlConnection.setRequestProperty("Authorization", authorizationHeaderValue);
+        }
+        else
+        {
+            // 3 - Authenticate with BasicAuth
+            String basicAuth = username + ":" + password;
+            authorizationHeaderValue =  "Basic " + Base64.encodeBase64String(basicAuth.getBytes());
+            urlConnection.setRequestProperty("Authorization", authorizationHeaderValue);
+        }
 
         // 4 - Configure certificate authentication
         HttpsURLConnection httpsURLConnection = (HttpsURLConnection) urlConnection;
@@ -71,6 +88,7 @@ public class PickupUtil
             );
         }
 
+        pickupResponse.setRequestAuthorizationHeaderValue(authorizationHeaderValue);
         return pickupResponse;
     }
 }
