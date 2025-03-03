@@ -82,12 +82,18 @@ public class ConfigurationManager
         lines.add(useBearerTokenAuth);
 
         String ccClientId = parseClientCredentialsFlowClientIdInput(
+                request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH),
                 request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID));
         lines.add(ccClientId);
 
         String ccClientSecret = parseClientCredentialsFlowClientSecretInput(
+                request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH),
                 request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET));
         lines.add(ccClientSecret);
+
+        String ccScope = parseClientCredentialsFlowScopeInput(
+                request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE));
+        lines.add(ccScope);
 
         String spAdapterId = parseApplicationSpAdapterIdInput(
                 request.getParameter(SpSampleConstants.SP_ADAPTER_CONF_ADAPTER_ID));
@@ -152,9 +158,18 @@ public class ConfigurationManager
         return SpSampleConstants.SP_ADAPTER_CONF_PASSPHRASE + "=" + applicationPassphrase;
     }
 
-    private static String parseClientCredentialsFlowClientIdInput(String clientId) throws ConfigurationException
+    private static String parseClientCredentialsFlowClientIdInput(String useBearerTokenAuth, String clientId) throws ConfigurationException
     {
+        if ("yes".equals(useBearerTokenAuth) && StringUtils.isBlank(clientId))
+        {
+            throw new ConfigurationException("The client ID and secret cannot be empty when using bearer token authentication.");
+        }
         return SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID + "=" + clientId;
+    }
+
+    private static String parseClientCredentialsFlowScopeInput(String scope) throws ConfigurationException
+    {
+        return SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE + "=" + scope;
     }
 
     private static String parseUseBearerTokenAuthInput(String useBearerTokenAuth) throws ConfigurationException
@@ -162,8 +177,13 @@ public class ConfigurationManager
         return SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH + "=" + useBearerTokenAuth;
     }
 
-    private static String parseClientCredentialsFlowClientSecretInput(String clientSecret) throws ConfigurationException
+    private static String parseClientCredentialsFlowClientSecretInput(String useBearerTokenAuth,
+                                                                      String clientSecret) throws ConfigurationException
     {
+        if ("yes".equals(useBearerTokenAuth) && StringUtils.isBlank(clientSecret))
+        {
+            throw new ConfigurationException("The client ID and secret cannot be empty when using bearer token authentication.");
+        }
         return SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET + "=" + clientSecret;
     }
 

@@ -30,6 +30,7 @@ public class DropoffUtil
             boolean useBearerTokenAuthentication,
             String clientId,
             String clientSecret,
+            String scope,
             IncomingAttributeFormat incomingAttributeFormat,
             SSLContext sslContext,
             HostnameVerifier hostnameVerifier) throws IOException
@@ -59,7 +60,7 @@ public class DropoffUtil
         if (useBearerTokenAuthentication)
         {
             // Get the access token
-            String accessToken = ClientCredentialsUtil.getAccessToken(basePfUrl, clientId, clientSecret);
+            String accessToken = ClientCredentialsUtil.getAccessToken(basePfUrl, clientId, clientSecret, scope);
             // 3 - Authenticate with Bearer Token
             authorizationHeaderValue = "Bearer " + accessToken;
             urlConnection.setRequestProperty("Authorization", authorizationHeaderValue);

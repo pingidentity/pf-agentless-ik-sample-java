@@ -42,6 +42,8 @@ public class ReferenceIdAdapterUtil
         String clientId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
         String clientSecret =
                 idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
+        String scope =
+                idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE);
 
         ReferenceIdAdapterResponse pickupResponse;
 
@@ -62,6 +64,7 @@ public class ReferenceIdAdapterUtil
                     useBearerTokenAuthentication,
                     clientId,
                     clientSecret,
+                    scope,
                     sslContext,
                     (hostname, sslSession) -> true);
         }
@@ -90,6 +93,8 @@ public class ReferenceIdAdapterUtil
         String clientId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
         String clientSecret =
                 idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
+        String scope =
+                idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE);
 
         IncomingAttributeFormat incomingAttributeFormat =
                 IdpSampleConstants.IDP_ADAPTER_CONF_INCOMING_ATTRIBUTE_FORMAT_JSON.equals(incomingAttributeFormatStr) ?
@@ -117,6 +122,7 @@ public class ReferenceIdAdapterUtil
                     useBearerTokenAuthentication,
                     clientId,
                     clientSecret,
+                    scope,
                     incomingAttributeFormat,
                     sslContext,
                     (hostname, sslSession) -> true);

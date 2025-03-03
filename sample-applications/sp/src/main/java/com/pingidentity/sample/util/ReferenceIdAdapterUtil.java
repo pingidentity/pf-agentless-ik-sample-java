@@ -38,6 +38,8 @@ public class ReferenceIdAdapterUtil
         String clientId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
         String clientSecret =
                 spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
+        String scope =
+                spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE);
 
         ReferenceIdAdapterResponse pickupResponse;
 
@@ -58,6 +60,7 @@ public class ReferenceIdAdapterUtil
                     useBearerTokenAuthentication,
                     clientId,
                     clientSecret,
+                    scope,
                     sslContext,
                     (hostname, sslSession) -> true);
         }

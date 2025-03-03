@@ -30,6 +30,7 @@ public class SpSampleConstants
     public static final String SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH = "useBearerTokenAuth";
     public static final String SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID = "ccClientId";
     public static final String SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET = "ccClientSecret";
+    public static final String SP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE = "ccScope";
     public static final String SP_ADAPTER_CONF_ADAPTER_ID = "adapterId";
     public static final String SP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT = "outgoingAttributeFormat";
     public static final String SP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT_JSON = "JSON";

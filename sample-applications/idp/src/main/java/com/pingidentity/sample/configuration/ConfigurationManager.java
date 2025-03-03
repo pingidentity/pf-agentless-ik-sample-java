@@ -85,14 +85,17 @@ public class ConfigurationManager
                 request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH));
         lines.add(useBearerTokenAuth);
 
-        String ccClientId = parseClientCredentialsFlowClientIdInput(
+        String ccClientId = parseClientCredentialsFlowClientIdInput(request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH),
                 request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID));
         lines.add(ccClientId);
 
-        String ccClientSecret = parseClientCredentialsFlowClientSecretInput(
+        String ccClientSecret = parseClientCredentialsFlowClientSecretInput(request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH),
                 request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET));
         lines.add(ccClientSecret);
 
+        String ccClientScope = parseClientCredentialsFlowScopeInput(
+                request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE));
+        lines.add(ccClientScope);
 
         String idpAdapterId = parseApplicationIdpAdapterIdInput(
                 request.getParameter(IdpSampleConstants.IDP_ADAPTER_CONF_ADAPTER_ID));
@@ -161,14 +164,29 @@ public class ConfigurationManager
         return IdpSampleConstants.IDP_ADAPTER_CONF_PASSPHRASE + "=" + applicationPassphrase;
     }
 
-    private static String parseClientCredentialsFlowClientIdInput(String clientId) throws ConfigurationException
+    private static String parseClientCredentialsFlowClientIdInput(String useBearerTokenAuth, String clientId) throws ConfigurationException
     {
+        if ("yes".equals(useBearerTokenAuth) && StringUtils.isBlank(clientId))
+        {
+            throw new ConfigurationException("The client ID and secret cannot be empty when using bearer token " +
+                                             "authentication.");
+        }
         return IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID + "=" + clientId;
     }
 
-    private static String parseClientCredentialsFlowClientSecretInput(String clientSecret) throws ConfigurationException
+    private static String parseClientCredentialsFlowClientSecretInput(String useBearerTokenAuth,
+                                                                      String clientSecret) throws ConfigurationException
     {
+        if ("yes".equals(useBearerTokenAuth) && StringUtils.isBlank(clientSecret))
+        {
+            throw new ConfigurationException("The client ID and secret cannot be empty when using bearer token authentication.");
+        }
         return IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET + "=" + clientSecret;
+    }
+
+    private static String parseClientCredentialsFlowScopeInput(String scope) throws ConfigurationException
+    {
+        return IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE + "=" + scope;
     }
 
     private static String parseUseBearerTokenFlowInput(String useBearerTokenAuth) throws ConfigurationException

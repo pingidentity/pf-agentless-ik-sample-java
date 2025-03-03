@@ -34,7 +34,7 @@ public class ClientCredentialsUtil
 {
     public static String TOKEN_ENDPOINT = "/as/token.oauth2";
 
-    public static String getAccessToken(String basePfUrl, String clientId, String clientSecret)
+    public static String getAccessToken(String basePfUrl, String clientId, String clientSecret, String scope)
     {
         String accessToken = null;
         String tokenUrl = basePfUrl + TOKEN_ENDPOINT;
@@ -44,7 +44,8 @@ public class ClientCredentialsUtil
 
             String formParams = "client_id=" + URLEncoder.encode(clientId, "UTF-8") +
                                 "&client_secret=" + URLEncoder.encode(clientSecret, "UTF-8") +
-                                "&grant_type=client_credentials";
+                                "&grant_type=client_credentials" +
+                                "&scope=" + URLEncoder.encode(scope, "UTF-8");
 
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setRequestMethod("POST");

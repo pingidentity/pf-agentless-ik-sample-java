@@ -21,6 +21,7 @@
 	boolean isChecked = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH).equals("yes") ? true: false;
 	String ccClientId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
     String ccClientSecret = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
+    String ccScope = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE);
 	String adapterId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_ADAPTER_ID);
 	String outgoingAttributeFormat = spAdapterConfiguration.getProperty(
 			SpSampleConstants.SP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT);
@@ -122,8 +123,17 @@
 										   value="<%= ccClientSecret %>"/>
 							    </div>
                 			</div>
-
                 			<div class="ping-input grid-g">
+								<label class="ping-input-label">CLIENT CREDENTIALS FLOW: SCOPE</label>
+								<div class="ping-input-container">
+									<input type="text"
+										   name="<%= SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE %>"
+										   id="application_ccScope_input"
+										   value="<%= ccScope %>"/>
+							    </div>
+                			</div>
+
+                			<div class="ping-input grid-h">
 								<label class="ping-input-label">SP ADAPTER ID</label>
 								<div class="ping-input-container">
 									<input type="text" 
@@ -132,7 +142,7 @@
 										   value="<%= adapterId %>"/>
 								</div>
                 			</div>
-                			<div class="ping-input grid-h">
+                			<div class="ping-input grid-i">
                             	<label class="ping-input-label">OUTGOING ATTRIBUTE FORMAT</label>
 								<div class="ping-input-container">
 									<div class="select-wrapper">
@@ -149,7 +159,7 @@
 									</div>
 								</div>
 							</div> 	
-                			<div class="ping-input grid-i">
+                			<div class="ping-input grid-j">
                             	<label class="ping-input-label">TARGET URL</label>
 								<div class="ping-input-container">
 									<input type="text" 
@@ -158,7 +168,7 @@
 										   value="<%= targetURL %>"/>
 								</div>
 							</div> 	
-                			<div class="ping-input grid-j">
+                			<div class="ping-input grid-k">
                             	<label class="ping-input-label">PARTNER ENTITY ID</label>
 								<div class="ping-input-container">
 									<input type="text" 
