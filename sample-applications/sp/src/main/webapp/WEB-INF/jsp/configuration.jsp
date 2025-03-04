@@ -16,13 +16,13 @@
 	Properties spAdapterConfiguration = spSampleConfiguration.getSpAdapterConfiguration();
 		
 	String basePfUrl = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_BASE_PF_URL);
-	String username = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_USERNAME);
-	String passphrase = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_PASSPHRASE);
+	String username = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_USERNAME).replace("\"", "&quot;");
+	String passphrase = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_PASSPHRASE).replace("\"", "&quot;");
 	boolean isChecked = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH).equals("yes") ? true: false;
-	String ccClientId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
-    String ccClientSecret = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
-    String ccScope = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE);
-	String adapterId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_ADAPTER_ID);
+	String ccClientId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID).replace("\"", "&quot;");
+    String ccClientSecret = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET).replace("\"", "&quot;");
+    String ccScope = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE).replace("\"", "&quot;");
+	String adapterId = spAdapterConfiguration.getProperty(SpSampleConstants.SP_ADAPTER_CONF_ADAPTER_ID).replace("\"", "&quot;");
 	String outgoingAttributeFormat = spAdapterConfiguration.getProperty(
 			SpSampleConstants.SP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT);
 	String otherOutgoingAttributeFormat = 

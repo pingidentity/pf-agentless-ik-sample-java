@@ -27,6 +27,8 @@ public class IdpAdapterConfigurationLoader extends ConfigurationLoader
         if (lastReloaded.before(getFileLastModified()))
         {
             String rawProperties = loadConfigurationFile();
+            // Escape backslashes
+            rawProperties = rawProperties.replace("\\", "\\\\");
             Properties properties = new Properties();
 
             try (StringReader stringReader = new StringReader(rawProperties))

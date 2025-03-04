@@ -17,13 +17,13 @@
 	Properties idpAdapterConfiguration = idpSampleConfiguration.getIdpAdapterConfiguration();
 
 	String basePfUrl = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_BASE_PF_URL);
-	String username = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_USERNAME);
-	String passphrase = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_PASSPHRASE);
+	String username = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_USERNAME).replace("\"", "&quot;");
+	String passphrase = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_PASSPHRASE).replace("\"", "&quot;");
 	boolean isChecked = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_USE_BEARER_TOKEN_AUTH).equals("yes") ? true: false;
-	String ccClientId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID);
-	String ccClientSecret = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET);
-	String ccScope = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE);
-	String adapterId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_ADAPTER_ID);
+	String ccClientId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_ID).replace("\"", "&quot;");
+	String ccClientSecret = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_CLIENT_SECRET).replace("\"", "&quot;");
+	String ccScope = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_CLIENT_CREDENTIALS_FLOW_SCOPE).replace("\"", "&quot;");
+	String adapterId = idpAdapterConfiguration.getProperty(IdpSampleConstants.IDP_ADAPTER_CONF_ADAPTER_ID).replace("\"", "&quot;");
 	String outgoingAttributeFormat = idpAdapterConfiguration.getProperty(
 			IdpSampleConstants.IDP_ADAPTER_CONF_OUTGOING_ATTRIBUTE_FORMAT);
 	String otherOutgoingAttributeFormat = 
