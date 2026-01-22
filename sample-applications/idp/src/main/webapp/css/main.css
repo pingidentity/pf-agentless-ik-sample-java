@@ -1,42 +1,5 @@
 @CHARSET "UTF-8";
 
-* {
-    font-family: "ProximaNovaRegular", helvetica, arial, sans-serif;
-    font-size: 14px;
-    padding: 0px;
-    margin: 0px;
-}
-
-@font-face {
-  font-family: 'ProximaNovaRegular';
-  font-weight: normal;
-  src: url("../fonts/proxima-nova/ProximaNova-Regular.otf");
-}
-
-@font-face {
-  font-family: 'ProximaNovaBold';
-  font-weight: bold;
-  src: url("../fonts/proxima-nova/ProximaNova-Bold.otf");
-}
-
-@font-face {
-  font-family: 'ProximaNovaLight';
-  font-weight: normal;
-  src: url("../fonts/proxima-nova/ProximaNova-Light.otf");
-}
-
-@font-face {
-  font-family: 'ProximaNovaSemibold';
-  font-weight: normal;
-  src: url("../fonts/proxima-nova/ProximaNova-Semibold.otf");
-}
-
-@font-face {
-  font-family: 'ProximaNovaCondRegular';
-  font-weight: normal;
-  src: url("../fonts/proxima-nova/ProximaNovaCond-Regular.otf");
-}
-
 body {
     border: 0px;
     background-color: #3d454d;
@@ -97,7 +60,7 @@ body {
     display: inline-block;
     text-transform: uppercase;
     vertical-align: top;
-    font-family: "ProximaNovaRegular", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
     cursor: default;
 }
 
@@ -108,7 +71,7 @@ body {
     text-transform: none;
     color: #929aa1;
     line-height: 1em;
-    font-family: "ProximaNovaRegular", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
     cursor: default;
     -webkit-backface-visibility: hidden;
     -webkit-border-radius: 0 0 2px 2px;
@@ -129,7 +92,7 @@ body {
     text-transform: uppercase;
     vertical-align: middle;
     position: relative;
-    font-family: "ProximaNovaRegular", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
     cursor: default;
 }
 
@@ -139,7 +102,7 @@ body {
     vertical-align: middle;
     color: #929aa1;
     line-height: 1em;
-    font-family: "ProximaNovaRegular", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
     cursor: default;
     -webkit-backface-visibility: hidden;
     -webkit-border-radius: 0 0 2px 2px;
@@ -308,7 +271,7 @@ select {
     cursor: pointer;
     padding: 0 10px 0 10px;
     width: 100%;
-    font-family: "ProximaNovaRegular", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
@@ -355,7 +318,7 @@ a:hover {
     width: 100%;
     margin: 0 0 10px;
     border-bottom: 1px solid #c6c6c5;
-    font-family: "ProximaNovaLight", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
 }
 
 .title {
@@ -365,7 +328,7 @@ a:hover {
     font-size: 30px;
     justify-content:center;
     align-items:center;
-    font-family: "ProximaNovaLight", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
 }
 
 .header {
@@ -376,13 +339,13 @@ a:hover {
     height: auto;
     width: auto;
     font-size: 40px;
-    font-family: "ProximaNovaLight", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
 }
 
 .sub-header {
     color: #93999f;
     font-size: 15px;
-    font-family: 'proxima-nova', 'helvetica', 'arial', sans-serif;
+    font-family: 'helvetica', 'arial', sans-serif;
     font-weight: 400;
     font-style: normal;
     margin-top: 15px;
@@ -461,7 +424,7 @@ a:hover {
 
 p {
     margin: 0 0 1em;
-    font-family: ProximaNovaRegular, helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
     font-size: 14px;
 }
 
@@ -476,14 +439,14 @@ textarea {
 .text-label {
     color: #93999f;
     font-size: 14px;
-    font-family: "ProximaNovaRegular", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
     text-transform: uppercase;
 }
 
 .text-value {
     color: #4b637c;
     font-size: 14px;
-    font-family: "ProximaNovaRegular", helvetica, arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
 }
 
 .ping-nopad {
