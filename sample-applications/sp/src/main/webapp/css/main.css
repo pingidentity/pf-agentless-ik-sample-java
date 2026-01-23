@@ -1,5 +1,12 @@
 @CHARSET "UTF-8";
 
+* {
+    font-family: helvetica, arial, sans-serif;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
+}
+
 body {
     border: 0px;
     background-color: #3d454d;
